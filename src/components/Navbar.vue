@@ -1,7 +1,7 @@
 <template>
   <div class="ui menu top-header">
       <router-link :to="{ name: 'Main'}" class="header item">
-        GameCards &nbsp;<i class="far fa-address-card"></i>
+        GameCard &nbsp;<i class="far fa-address-card"></i>
       </router-link>
       <div class="right menu">
         <div class="item">
@@ -57,7 +57,7 @@ export default {
 <style scoped>
 .top-header {
   border-radius: 0em !important;
-  background-color: rgba(221, 101, 101, 0.85) !important;
+  background-color: rgba(226, 47, 47, 0.85) !important;
 }
 .item {
   border-radius: 0em !important;
@@ -65,6 +65,6 @@ export default {
 }
 a:hover {
   background-color: rgba(255, 255 ,255, 0.98)!important;
-  color: rgba(221, 101, 101, 0.9) !important;
+  color: rgba(226, 47, 47, 0.9) !important;
 }
 </style>

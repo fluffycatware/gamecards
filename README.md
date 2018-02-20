@@ -1,6 +1,6 @@
-# GameCards
+# GameCard
 
-[GameCards](gamecard.co) let you buy, lease and sell cards on the Ethereum blockchain.
+[GameCard](gamecard.co) let you buy, lease and sell cards on the Ethereum blockchain.
 
 A donation is cut from each purchase and is donated the the fluffyCat wallet address, which in turn is donated to Animal Welfare.
 
@@ -17,7 +17,13 @@ npm run dev
 npm run build
 ```
 
-You can set up a developement Ethereum node with [truffle](http://truffleframework.com/) :
+You can set up a developement Ethereum node with [truffle](http://truffleframework.com/). You should probably install truffle for use globally, however its up to you
+
+```bash
+npm install -g truffle
+```
+
+Then to use truffle run the following:
 
 ``` bash
 # Run node
@@ -28,6 +34,9 @@ truffle compile
 
 # Migrate contracts
 truffle migrate
+
+# If you are migrating to ropsten use the following
+truffle migrate --network ropsten
 ```
 
 

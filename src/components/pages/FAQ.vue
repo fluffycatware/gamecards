@@ -10,7 +10,7 @@
     <div class="ui segment raised">
       <div class="ui link selection animated list">
         <div class="item">
-          GameCards
+          GameCard
           <div class="list">
             <router-link class="item" :to="{ name: 'FAQ', hash: '#how-it-works' }">How it works ?</router-link>
             <router-link class="item" :to="{ name: 'FAQ', hash: '#whats-cool' }">So, what's the deal ?</router-link>
@@ -37,7 +37,7 @@
           Miscellaneous
           <div class="list">
             <router-link class="item" :to="{ name: 'FAQ', hash: '#fees' }">Is there any fees ?</router-link>
-            <router-link class="item" :to="{ name: 'FAQ', hash: '#what-is-giveth' }">What is Giveth.io ?</router-link>
+            <router-link class="item" :to="{ name: 'FAQ', hash: '#what-is-fluffycat' }">What is FluffyCat.tech ?</router-link>
             <router-link class="item" :to="{ name: 'FAQ', hash: '#who-are-you' }">Who are you ?</router-link>
             <router-link class="item" :to="{ name: 'FAQ', hash: '#projects-money' }">What will you do with the money ? </router-link>
           </div>
@@ -48,10 +48,10 @@
       <h2 class="ui header" id="how-it-works">
         How it works ?
       </h2>
-      <p>GameCards let you <router-link :to="{ name: 'FAQ', hash: '#buy-card' }" >buy</router-link>, <router-link :to="{ name: 'FAQ', hash: '#lease-card' }" >lease</router-link> and <router-link :to="{ name: 'FAQ', hash: '#sell-card' }" >sell</router-link> cards.
-      GameCards homepage is filled with cards ranked from 1 to 100. Each card is sold at a price related to its rank, the card #1 is initially sold at 1 Ether and card #100 is set at 0.01 Ether.
+      <p>GameCard let you <router-link :to="{ name: 'FAQ', hash: '#buy-card' }" >buy</router-link>, <router-link :to="{ name: 'FAQ', hash: '#lease-card' }" >lease</router-link> and <router-link :to="{ name: 'FAQ', hash: '#sell-card' }" >sell</router-link> cards.
+      GameCard homepage is filled with cards ranked from 1 to 100. Each card is sold at a price related to its rank, the card #1 is initially sold at 1 Ether and card #100 is set at 0.01 Ether.
       A card is made from a descriptive title, a redirection URL and an image set by the card owner.
-      For each card sold during the initial sale, <b>10% of the amount is reversed to <router-link :to="{ name: 'FAQ', hash: '#what-is-giveth' }" >Giveth</router-link></b> !
+      For each card sold during the initial sale, <b>10% of the amount is reversed to <router-link :to="{ name: 'FAQ', hash: '#what-is-fluffycat' }" >FluffyCat</router-link></b> !
       </p>
       <p>If no cards are available to buy, you probably can rent one. You'll pay to the card owner a fixed amount of Ether to display
       your details for a pre-determined duration.</p>
@@ -117,7 +117,7 @@
       <h2 class="ui header" id="whats-cool">
         So, what's the deal ?
       </h2>
-      <p>Although GameCards looks like a regular website, it's not one, it's a Decentralized Applications (ÐApps). Cards are not loaded from our database (we do not host anything) but instead directly loaded from the Ethereum blockchain.
+      <p>Although GameCard looks like a regular website, it's not one, it's a Decentralized Applications (ÐApps). Cards are not loaded from our database (we do not host anything) but instead directly loaded from the Ethereum blockchain.
       This blockchain acts like a decentralized database where everyone can see its state and cannot be tampered by anyone. Once you acquired a card, it is written in
       the blockchain and it remains forever yours.
       </p>
@@ -134,7 +134,7 @@
       and is the easiest way to interact with Smart Contract.</p>
       <p>
         This plugin provides a wallet where you can send some Ether (Ξ) in order to execute operations. This plugin is your only <b>login access</b> to buy, lease and sell cards !
-        Thus, there is no registration nor login form, just install and unlock a wallet on MetaMask and you have now access to every GameCards features.
+        Thus, there is no registration nor login form, just install and unlock a wallet on MetaMask and you have now access to every GameCard features.
       </p>
       <p>
         The following video gives an introduction and a setup guide for MetaMask :
@@ -224,7 +224,7 @@
           <p>
             You just have to set the price you want it to be sold. Your card will now be listed as on sale, the ownership
             of your card will be transferred to the first buyer. You will then be credited of the transaction amount. <i>Note :
-            GameCards take a 1% cut on this transaction.</i>
+            GameCard take a 1% cut on this transaction.</i>
           </p>
           <p>
             Card may be sold even if they are leased, as you have already been credited of the total lease amount. You are also able to
@@ -376,7 +376,7 @@
           <p>
             Considering an average block generation time of 15 seconds, 6 000 blocks
             is a day and 1 000 000 blocks is approximately 6 months. The total amount is the product of the block duration and amount per block, this
-            total amount should be greater than 0.005 Ξ. <i>Note : GameCards take a 1% cut on the lease total amount.</i>
+            total amount should be greater than 0.005 Ξ. <i>Note : GameCard take a 1% cut on the lease total amount.</i>
           </p>
           <p>
             You can cancel rent out by selecting <i class="fa fa-times"></i> <b>Cancel rent out</b> in card footer or in card
@@ -450,35 +450,27 @@
          fee if you accept that your operation take more time.</p>
       <p>
         Otherwise, there is a 1% fee on each card transaction (sell or lease). We are proud to reverse 10% of the profits generated by the initial cards sales
-        to Giveth. Note that this 10% cut is only applied to the initial sale and will not be subtracted to your profits from selling or leasing cards.
+        to FluffyCat. Note that this 10% cut is only applied to the initial sale and will not be subtracted to your profits from selling or leasing cards.
       </p>
 
-      <h2 class="ui header" id="what-is-giveth">
-        What is Giveth ?
+      <h2 class="ui header" id="what-is-fluffycat">
+        What is Fluffy Cat ?
       </h2>
       <p>
-        <a target="_blank" href="https://giveth.io/">Giveth</a> is an Open-Source Platform for building Decentralized Altruistic Communities (DAC).
+        <a target="_blank" href="http://fluffycat.tech/">Giveth</a> is an Open-Source Foundation that aims to raise funds for Animal welfare and charity groups.
       </p>
-      <div class="ui basic segment">
-        <q>
-          Giveth is re-engineering charitable giving, by creating an entirely free, open-source platform, built on the Ethereum Blockchain.
-          Our system cuts out bureaucracy and enables nonprofits to create a high level of transparency and accountability towards Givers.
-          At any point until the moment funds are locked, a Giver can decide to withdraw them.
-        </q>
-      </div>
-      <p> You can learn more on Giveth <a target="_blank" href="https://medium.com/giveth/what-is-the-future-of-giving-d50446b0a0e4">here</a>.</p>
+      <p> You can learn more on FluffyCat <a target="_blank" href="http://fluffycat.tech/">here</a>.</p>
 
       <h2 class="ui header" id="who-are-you">
         Who are you ?
       </h2>
-      <p>I'm a Computer Science student from Belgium. I'm into blockchain technology since early 2017 and this is my first Smart Contract
-        published on the Ethereum blockchain !
+      <p>I'm a Computer Systems and Networking student from Australia. I'm recently gotten into blockchain technology and enjoy published new contracts on the Ethereum blockchain !
       </p>
 
       <h2 class="ui header" id="projects-money">
         What will you do with the money ?
       </h2>
-      <p>I have other projects on the Ethereum blockchain, the profits made by GameCards will help fund them. It will also be used
+      <p>I have other projects on the Ethereum blockchain, the profits made by GameCard will help fund them. It will also be used
         to invest in other blockchain related projects.
       </p>
     </div>

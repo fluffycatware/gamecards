@@ -19,13 +19,13 @@
       <h3 class="ui header">
         Why do I need MetaMask ?
       </h3>
-      <p>GameCards is a Decentralized Application running on the Ethereum blockchain. The easiest way to interact with them is by using a small browser add-on.
+      <p>GameCard is a Decentralized Application running on the Ethereum blockchain. The easiest way to interact with them is by using a small browser add-on.
         This plugin provides a wallet where you can send some Ether (Ξ) in order to execute operations. This plugin is your only <b>login access</b> to buy, lease and sell cards !
-        Thus, there is no registration nor login form, just install and unlock a wallet on MetaMask and you have now access to every GameCards features.</p>
+        Thus, there is no registration nor login form, just install and unlock a wallet on MetaMask and you have now access to every GameCard features.</p>
       <h3 class="ui header">
         I already have MetaMask
       </h3>
-      <p>You need to <b>unlock</b> a wallet in order to access GameCards.</p>
+      <p>You need to <b>unlock</b> a wallet in order to access GameCard.</p>
       <div class="ui basic segment center aligned">
         <div class="ui large header">More questions ? Have a look at our <router-link :to="{ name: 'FAQ' }">FAQ</router-link></div>
       </div>
