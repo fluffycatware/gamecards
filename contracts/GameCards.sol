@@ -1,138 +1,140 @@
 pragma solidity ^0.4.18;
 
+
 contract GameCards {
 
     /// Lease record, store card tenants details
     /// and lease details
     struct LeaseCard {
-      uint id;
-      address tenant;
-      uint price;
-      uint untilBlock;
-      string title;
-      string url;
-      string image;
+        uint id;
+        address tenant;
+        uint price;
+        uint untilBlock;
+        string title;
+        string url;
+        string image;
     }
 
     /// Record card details
-    struct cardDetails {
-      uint8 id;
-      uint price;
-      uint priceLease; // price per block
-      uint leaseDuration; // in block
-      bool availableBuy;
-      bool availableLease;
-      uint[] leaseList;
-      mapping(uint => LeaseCard) leaseCardStructs;
+    struct CardDetails {
+        uint8 id;
+        uint price;
+        uint priceLease; // price per block
+        uint leaseDuration; // in block
+        bool availableBuy;
+        bool availableLease;
+        uint[] leaseList;
+        mapping(uint => LeaseCard) leaseCardStructs;
     }
 
     /// Record card
     struct Card {
-      uint8 id;
-      address owner;
-      string title;
-      string url;
-      string image;
-      bool nsfw;
+        uint8 id;
+        address owner;
+        string title;
+        string url;
+        string image;
+        bool nsfw;
     }
 
     /// Users pending withdrawals
-    mapping(address => uint) pendingWithdrawals;
+    mapping(address => uint) public pendingWithdrawals;
 
-    mapping(uint8 => Card) cardStructs; // random access by card key
-    uint8[] cardList; // list of announce keys so we can enumerate them
+    mapping(uint8 => Card) public cardStructs; // random access by card key
+    uint8[] public cardList; // list of announce keys so we can enumerate them
 
-    mapping(uint8 => cardDetails) cardDetailsStructs; // random access by card details key
-    uint8[] cardDetailsList; // list of cards details keys so we can enumerate them
+    mapping(uint8 => CardDetails) public cardDetailsStructs; // random access by card details key
+    uint8[] public cardDetailsList; // list of cards details keys so we can enumerate them
 
     /// Initial card price
-    uint initialCardPrice = 1 ether;
+    uint public initialCardPrice = 1 ether;
 
     /// Owner cut (1%) . This cut only apply on a user-to-user card transaction
-    uint ownerBuyCut = 100;
+    uint public ownerBuyCut = 100;
     /// fluffyCat cut (10%)
-    uint fluffyCatCut = 1000;
+    uint public fluffyCatCut = 1000;
 
     /// contractOwner can withdraw the funds
-    address contractOwner;
+    address public contractOwner;
     /// fluffyCat address
-    address fluffyCatAddress = 0xb39274C9887d314Ba65dA9929f3d0E94893570A7;
+    address public fluffyCatAddress = 0x2c00A5013aA2E600663f7b197C98db73bA847e6d;
 
     /// Contract constructor
     function GameCards(address _contractOwner) public {
-      require(_contractOwner != address(0));
-      contractOwner = _contractOwner;
+        require(_contractOwner != address(0));
+        contractOwner = _contractOwner;
     }
 
-    modifier onlyContractOwner()
-    {
-       // Throws if called by any account other than the contract owner
+    modifier onlyContractOwner() {
+        // Throws if called by any account other than the contract owner
         require(msg.sender == contractOwner);
         _;
     }
 
-    modifier onlyCardOwner(uint8 cardId)
-    {
-       // Throws if called by any account other than the card owner
+    modifier onlyCardOwner(uint8 cardId) {
+        // Throws if called by any account other than the card owner
         require(msg.sender == cardStructs[cardId].owner);
         _;
     }
 
-    modifier onlyValidCard(uint8 cardId)
-    {
-       // Throws if card is not valid
+    modifier onlyValidCard(uint8 cardId) {
+        // Throws if card is not valid
         require(cardId >= 1 && cardId <= 100);
         _;
     }
 
     /// Return cardList array
-    function getCards() public view
-        returns(uint8[])
-    {
-      return cardList;
+    function getCards() public view returns(uint8[]) {
+        uint8[] memory result = new uint8[](cardList.length);
+        uint8 counter = 0;
+        for (uint8 i = 0; i < cardList.length; i++) {
+            result[counter] = i;
+            counter++;
+        }
+        return result;
     }
 
     /// Return cardDetailsList array
-    function getCardsDetails() public view
-        returns(uint8[])
-    {
-      return cardDetailsList;
+    function getCardsDetails() public view returns(uint8[]) {
+        uint8[] memory result = new uint8[](cardDetailsList.length);
+        uint8 counter = 0;
+        for (uint8 i = 0; i < cardDetailsList.length; i++) {
+            result[counter] = i;
+            counter++;
+        }
+        return result;
     }
 
     /// Return card details by id
-    function getCardDetails(uint8 cardId) view public
-        onlyValidCard(cardId)
-        returns (uint8 id, uint price, uint priceLease, uint leaseDuration, bool availableBuy, bool availableLease)
-    {
-        bool _buyAvailability;
-        if (cardDetailsStructs[cardId].id == 0 || cardDetailsStructs[cardId].availableBuy) {
-            _buyAvailability = true;
+    function getCardDetails(uint8 cardId) public view onlyValidCard(cardId)
+        returns (uint8 id, uint price, uint priceLease, uint leaseDuration, bool availableBuy, bool availableLease) {
+            bool _buyAvailability;
+            if (cardDetailsStructs[cardId].id == 0 || cardDetailsStructs[cardId].availableBuy) {
+                _buyAvailability = true;
+            }
+
+            CardDetails storage detail = cardDetailsStructs[cardId];
+            return (
+                detail.id,
+                detail.price,
+                detail.priceLease,
+                detail.leaseDuration,
+                _buyAvailability,
+                detail.availableLease
+                );
         }
 
-        return(
-          cardDetailsStructs[cardId].id,
-          cardDetailsStructs[cardId].price,
-          cardDetailsStructs[cardId].priceLease,
-          cardDetailsStructs[cardId].leaseDuration,
-          _buyAvailability,
-          cardDetailsStructs[cardId].availableLease
-        );
-    }
-
     /// Return card by id
-    function getCard(uint8 cardId) view public
-        onlyValidCard(cardId)
-        returns (uint8 id, address owner, string title, string url, string image, bool nsfw)
-    {
-        return(
-          cardStructs[cardId].id,
-          cardStructs[cardId].owner,
-          cardStructs[cardId].title,
-          cardStructs[cardId].url,
-          cardStructs[cardId].image,
-          cardStructs[cardId].nsfw
-        );
-    }
+    function getCard(uint8 cardId) public view onlyValidCard(cardId)
+        returns (uint8 id, address owner, string title, string url, string image, bool nsfw) {
+            Card storage card = cardStructs[cardId];
+            id = card.id;
+            owner = card.owner;
+            title = card.title;
+            url = card.url;
+            image = card.image;
+            nsfw = card.nsfw;
+        }
 
     /// This is called on the initial buy card, user to user buy is at buyCard()
     /// Amount is sent to contractOwner balance and fluffycat get 10% of this amount
@@ -152,8 +154,8 @@ contract GameCards {
         _fillCardStruct(cardId, msg.sender, title, url, image);
         // Set nsfw flag to false
         cardStructs[cardId].nsfw = false;
-        // Contract credit 10% of price to GiveETH
-         _applyShare(contractOwner, fluffyCatAddress, fluffyCatCut);
+        // Contract credit 10% of price to FluffyCat
+        _applyShare(contractOwner, fluffyCatAddress, fluffyCatCut);
         // Initialize card details
         _initCardDetails(cardId, price);
         // Add the card to cardList
@@ -319,9 +321,10 @@ contract GameCards {
     }
 
     /// Transfer the ownership of a card
-    function transferCardOwnership(address to, uint8 cardId) public
-      onlyCardOwner(cardId)
-      returns (bool success)
+    function transferCardOwnership(address to, uint8 cardId)
+        public
+        onlyCardOwner(cardId)
+        returns (bool success)
     {
         // Transfer card ownership
         cardStructs[cardId].owner = to;
@@ -329,14 +332,17 @@ contract GameCards {
     }
 
     /// Return balance from sender
-    function getBalance() public view
-      returns (uint amount)
+    function getBalance()
+        public
+        view
+        returns (uint amount)
     {
         return pendingWithdrawals[msg.sender];
     }
 
     /// Allow address to withdraw their balance
-    function withdraw() public
+    function withdraw()
+        public
         returns (bool)
     {
         uint amount = pendingWithdrawals[msg.sender];

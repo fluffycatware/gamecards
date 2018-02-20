@@ -84,7 +84,7 @@ class Card {
       data.title,
       data.url,
       data.image
-      )
+    )
       .send({ from: store.getters.currentAddress, value: data.price })
       .then((txHash) => {
         this.owner = store.getters.currentAddress
@@ -102,7 +102,7 @@ class Card {
       data.title,
       data.url,
       data.image
-      )
+    )
       .send({ from: store.getters.currentAddress, value: data.price })
       .then((txHash) => {
         this.owner = store.getters.currentAddress

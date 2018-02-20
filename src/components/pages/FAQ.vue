@@ -102,15 +102,15 @@
               </div>
               <div class="extra content">
                 <div class="ui grid equal width center aligned">
-                  <div class="column" :data-tooltip="`Owned by 0x627306090abaB3A6e1400e9345bC60c78a8BEf57`" data-inverted="">
+                  <div class="column" :data-tooltip="`Owned by 0x2c00A5013aA2E600663f7b197C98db73bA847e6d`" data-inverted="">
                     <i class="fa fa-user"></i>
-                    0x627306090ab...
+                    0x2c00A5013aA...
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="ui segment basic center aligned card-description">Card #15 is owned by 0x627306090ab...</div>
+          <div class="ui segment basic center aligned card-description">Card #15 is owned by 0x2c00A5013aA...</div>
         </div>
       </div>
 
@@ -340,7 +340,7 @@
             </div>
             <div class="column" style="word-wrap: break-word;">
               <h3 class="ui header"><i class="far fa-user"></i>Lessor</h3>
-              <b>0x627306090abaB3A6e1400e9345bC60c78a8BEf57</b>
+              <b>0x2c00A5013aA2E600663f7b197C98db73bA847e6d</b>
             </div>
           </div>
           <p>

@@ -1,0 +1,10 @@
+{
+  "extends": "solium:recommended",
+  "rules": {
+    "arg-overflow": ["warning", 3], 
+    "indentation": ["error", 4],
+    "quotes": ["error", "double"],
+    "variable-declarations": 0,
+    "operator-whitespace": 0
+  }
+}
