@@ -226,18 +226,12 @@ export default {
   max-height: 93px !important;
 }
 .green-hover:hover {
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
   background-color: rgba(33, 186, 69, 0.2) ;
 }
 .red-hover:hover {
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
   background-color: rgba(219, 40, 40, 0.2);
 }
 .orange-hover:hover {
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
   background-color: rgba(242, 113, 28, 0.2);
 }
 </style>
