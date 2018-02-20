@@ -1,5 +1,5 @@
 <template>
-  <div v-if="card" class="ui card raised" :class="{ 'orange': inLeasing }">
+  <div v-if="card" class="ui card raised " :class="{ 'orange': inLeasing }">
     <div class="ui fluid image">
       <!-- Card id + yellow if is owner -->
       <router-link :to="{ name: 'CardDetails', params: { 'id': card.id }}">
@@ -233,5 +233,12 @@ export default {
 }
 .orange-hover:hover {
   background-color: rgba(242, 113, 28, 0.2);
+}
+@media only screen and (max-width: 767px) {
+  .ui.card {
+    max-width: 280px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 </style>
