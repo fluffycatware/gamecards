@@ -60,9 +60,8 @@ contract GameCards {
     address public fluffyCatAddress = 0x2c00A5013aA2E600663f7b197C98db73bA847e6d;
 
     /// Contract constructor
-    function GameCards(address _contractOwner) public {
-        require(_contractOwner != address(0));
-        contractOwner = _contractOwner;
+    function GameCards() public {
+        contractOwner = msg.sender;
     }
 
     modifier onlyContractOwner() {
@@ -261,11 +260,12 @@ contract GameCards {
         payable
         returns (bool success)
     {
+        CardDetails storage details = cardDetailsStructs[cardId];
         // Check that card is avaible to lease
-        require(cardDetailsStructs[cardId].availableLease);
+        require(details.availableLease);
         // Get price (per block) and leaseDuration (block)
-        uint price = cardDetailsStructs[cardId].priceLease;
-        uint leaseDuration = cardDetailsStructs[cardId].leaseDuration;
+        uint price = details.priceLease;
+        uint leaseDuration = details.leaseDuration;
         uint totalAmount = price * leaseDuration;
         // Check that amount sent is sufficient
         require(msg.value >= totalAmount);
@@ -274,25 +274,26 @@ contract GameCards {
         // Get the block number of lease end
         uint untilBlock = block.number + leaseDuration;
         // Take 1% cut on lease
-        address _cardOwner = cardStructs[cardId].owner;
+        Card storage card = cardStructs[cardId];
+        address _cardOwner = card.owner;
         _applyShare(_cardOwner, contractOwner, ownerBuyCut);
         // Fill leaseCardStructs
-        cardDetailsStructs[cardId].leaseCardStructs[leaseId].id = leaseId;
-        cardDetailsStructs[cardId].leaseCardStructs[leaseId].tenant = msg.sender;
-        cardDetailsStructs[cardId].leaseCardStructs[leaseId].price = totalAmount;
-        cardDetailsStructs[cardId].leaseCardStructs[leaseId].untilBlock = untilBlock;
-        cardDetailsStructs[cardId].leaseCardStructs[leaseId].title = title;
-        cardDetailsStructs[cardId].leaseCardStructs[leaseId].url = url;
-        cardDetailsStructs[cardId].leaseCardStructs[leaseId].image = image;
+        details.leaseCardStructs[leaseId].id = leaseId;
+        details.leaseCardStructs[leaseId].tenant = msg.sender;
+        details.leaseCardStructs[leaseId].price = totalAmount;
+        details.leaseCardStructs[leaseId].untilBlock = untilBlock;
+        details.leaseCardStructs[leaseId].title = title;
+        details.leaseCardStructs[leaseId].url = url;
+        details.leaseCardStructs[leaseId].image = image;
         // Leases are now unavailable for this card
-        cardDetailsStructs[cardId].availableLease = false;
+        details.availableLease = false;
         // Add lease to leases list of correspondant cardDetails
-        cardDetailsStructs[cardId].leaseList.push(leaseId);
+        details.leaseList.push(leaseId);
         return true;
     }
 
     /// Get last lease from a card
-    function getLastLease(uint8 cardId) public constant
+    function getLastLease(uint8 cardId) public view
         returns(uint leaseIndex, address tenant, uint untilBlock, string title, string url, string image)
     {
         uint _leaseIndex = getCardLeaseLength(cardId);
@@ -300,7 +301,7 @@ contract GameCards {
     }
 
     /// Get lease from card
-    function getLease(uint8 cardId, uint leaseId) public constant
+    function getLease(uint8 cardId, uint leaseId) public view
         returns(uint leaseIndex, address tenant, uint untilBlock, string title, string url, string image)
     {
         return(
@@ -314,7 +315,7 @@ contract GameCards {
     }
 
     /// Get lease list from a card
-    function getCardLeaseLength(uint8 cardId) public constant
+    function getCardLeaseLength(uint8 cardId) public view
         returns(uint cardLeasesCount)
     {
         return(cardDetailsStructs[cardId].leaseList.length);

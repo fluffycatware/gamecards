@@ -72,30 +72,30 @@ export default {
 }
 
 @keyframes item-1_move {
-  0%, 100% {transform: translate(0, 0)} 
-  25% {transform: translate(0, 50px)} 
-  50% {transform: translate(50px, 50px)} 
-  75% {transform: translate(50px, 0)} 
+  0%, 100% {transform: translate(0, 0)}
+  25% {transform: translate(0, 50px)}
+  50% {transform: translate(50px, 50px)}
+  75% {transform: translate(50px, 0)}
 }
 
 @keyframes item-2_move {
-  0%, 100% {transform: translate(0, 0)} 
-  25% {transform: translate(-50px, 0)} 
-  50% {transform: translate(-50px, 50px)} 
-  75% {transform: translate(0, 50px)} 
+  0%, 100% {transform: translate(0, 0)}
+  25% {transform: translate(-50px, 0)}
+  50% {transform: translate(-50px, 50px)}
+  75% {transform: translate(0, 50px)}
 }
 
 @keyframes item-3_move {
-  0%, 100% {transform: translate(0, 0)} 
-  25% {transform: translate(0, -50px)} 
-  50% {transform: translate(-50px, -50px)} 
-  75% {transform: translate(-50px, 0)} 
+  0%, 100% {transform: translate(0, 0)}
+  25% {transform: translate(0, -50px)}
+  50% {transform: translate(-50px, -50px)}
+  75% {transform: translate(-50px, 0)}
 }
 
 @keyframes item-4_move {
-  0%, 100% {transform: translate(0, 0)} 
-  25% {transform: translate(50px, 0)} 
-  50% {transform: translate(50px, -50px)} 
-  75% {transform: translate(0, -50px)} 
+  0%, 100% {transform: translate(0, 0)}
+  25% {transform: translate(50px, 0)}
+  50% {transform: translate(50px, -50px)}
+  75% {transform: translate(0, -50px)}
 }
 </style>

@@ -9,7 +9,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail when buying a non yet sold card', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         return APP.buyCard(5, 'test1', 'url', 'imgurl', {
@@ -24,7 +24,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail when not enough amount sent', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         return APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -39,7 +39,7 @@ contract('GameCards', (accounts) => {
 
   it('should buy card from initialBuyCard', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         return APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -78,7 +78,7 @@ contract('GameCards', (accounts) => {
 
   it('should init cardDetails', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -98,7 +98,7 @@ contract('GameCards', (accounts) => {
 
   it('should credit contract owner & fluffyCat on initial buy', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -126,7 +126,7 @@ contract('GameCards', (accounts) => {
 
   it('should allow contract owner to set nsfw', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -151,7 +151,7 @@ contract('GameCards', (accounts) => {
 
   it('should reset nsfw flag when user buy', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -177,7 +177,7 @@ contract('GameCards', (accounts) => {
 
   it('should set card to sell', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -196,7 +196,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail if non-owner try to sell card', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -214,7 +214,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail when not sufficient amount when buying card from user', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -236,7 +236,7 @@ contract('GameCards', (accounts) => {
 
   it('should credit user on card buy', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -277,7 +277,7 @@ contract('GameCards', (accounts) => {
 
   it('should withdraw to withdraw wallet', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -302,7 +302,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail to transfer card for non-owner', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -328,7 +328,7 @@ contract('GameCards', (accounts) => {
 
   it('should transfer card ownership', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -347,7 +347,7 @@ contract('GameCards', (accounts) => {
 
   it('should return correct sell availability', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         return APP.getCardDetails(5)
@@ -378,7 +378,7 @@ contract('GameCards', (accounts) => {
 
   it('should cancel sell offer', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then(function (instance) {
         APP = instance
         APP.initialBuyCard(5, 'test2', 'url2', 'imgurl2', {
@@ -407,7 +407,7 @@ contract('GameCards', (accounts) => {
 
   it('should set card on lease by owner', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -435,7 +435,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail to lease an non yet sold (=initial buy) card', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -453,7 +453,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail to set lease on an available to sell card', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -474,7 +474,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail when user try to lease a card already in lease', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -500,7 +500,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail when user try to lease a card not available to lease', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -519,7 +519,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail when user send not enough fund for lease', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -541,7 +541,7 @@ contract('GameCards', (accounts) => {
 
   it('should lease a card to user', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -568,7 +568,7 @@ contract('GameCards', (accounts) => {
 
   it('should allow card owner to cancel the lease offer', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -590,7 +590,7 @@ contract('GameCards', (accounts) => {
 
   it('should share lease amount correctly', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -624,7 +624,7 @@ contract('GameCards', (accounts) => {
 
   it('should fail to edit non-owner card details', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -642,7 +642,7 @@ contract('GameCards', (accounts) => {
 
   it('should edit card details', function () {
     let APP
-    return GameCards.new(owner)
+    return GameCards.new()
       .then((instance) => {
         APP = instance
         APP.initialBuyCard(5, 'test1', 'url', 'imgurl', {
@@ -664,7 +664,7 @@ contract('GameCards', (accounts) => {
   it('should buy all', function () {
     let APP
     // This works, but is heavy shit
-    // return GameCards.new(owner)
+    // return GameCards.new()
     //   .then(function (instance) {
     //     APP = instance
     //     for (i = 1; i <= 100; i++) {

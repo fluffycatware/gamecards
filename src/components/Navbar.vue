@@ -57,7 +57,7 @@ export default {
 <style scoped>
 .top-header {
   border-radius: 0em !important;
-  background-color: rgba(255, 107, 74, 0.85) !important;
+  background-color: rgba(221, 101, 101, 0.85) !important;
 }
 .item {
   border-radius: 0em !important;
@@ -65,6 +65,6 @@ export default {
 }
 a:hover {
   background-color: rgba(255, 255 ,255, 0.98)!important;
-  color: rgba(255, 107, 74, 0.9) !important;
+  color: rgba(221, 101, 101, 0.9) !important;
 }
 </style>
