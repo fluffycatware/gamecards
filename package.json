@@ -1,7 +1,7 @@
 {
-  "name": "GameCards",
+  "name": "GameCard",
   "version": "1.0.0",
-  "description": "GameCards is a decentralized application running on the Ethereum blockchain",
+  "description": "GameCard is a decentralized application running on the Ethereum blockchain",
   "author": "Nathan Glover <nathan@glovers.id.au>",
   "private": true,
   "scripts": {
