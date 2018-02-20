@@ -122,7 +122,7 @@
       the blockchain and it remains forever yours.
       </p>
       <p>
-      The other cool stuff is that you can check the logic behind GameCard by auditing the Smart Contract. You can have a look at the <a target="_blank" href="https://ropsten.etherscan.io/address/0x598382d2ba5e70624f0a7f9eeb1454e92a3169c2">contract on Etherscan</a>
+      The other cool stuff is that you can check the logic behind GameCard by auditing the Smart Contract. You can have a look at the <a target="_blank" href="https://etherscan.io/address/0xa25e8050f80ee99a17e861cd0931d5d362caa34e">contract on Etherscan</a>
       or the front-end hosted on <a target="_blank" href="https://github.com/fluffycatware/gamecards"><i class="fab fa-github"></i> Github</a>.
       </p>
 
