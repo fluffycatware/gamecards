@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // Components
-import Main from '@/components/Main'
+import Root from '@/components/Root'
 import Account from '@/components/Account'
 import CardDetails from '@/components/CardDetails'
 import SignIn from '@/components/pages/SignIn'
@@ -21,8 +21,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: Main
+      name: 'Root',
+      component: Root
     },
     {
       path: '/account',

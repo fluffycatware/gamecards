@@ -20,7 +20,7 @@ import Loader from '@/components/layouts/Loader'
 import config from '@/config'
 
 export default {
-  name: 'main',
+  name: 'root',
   components: {
     Loader,
     Card

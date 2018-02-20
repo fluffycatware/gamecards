@@ -1,6 +1,6 @@
 <template>
   <div class="ui menu top-header">
-      <router-link :to="{ name: 'Main'}" class="header item">
+      <router-link :to="{ name: 'Root'}" class="header item">
         GameCard &nbsp;<i class="far fa-address-card"></i>
       </router-link>
       <div class="right menu">
