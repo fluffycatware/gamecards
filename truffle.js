@@ -3,7 +3,7 @@ var HDWalletProvider = require("truffle-hdwallet-provider");
 var dotenv = require('dotenv').config()
 
 var mnemonic = dotenv.parsed.MNEMONIC;
-var infuraKey = dotenv.parsed.INFURA_API_KEY;
+var infuraKey = "1LPE9dOwZvYF9JQOPGHz";
 
 module.exports = {
   networks: {
