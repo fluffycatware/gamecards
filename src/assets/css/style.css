@@ -22,11 +22,12 @@ b {
   font-weight: bold !important;
 }
 a {
-  color: rgba(255, 107, 74, 0.75) !important;
+  color: rgba(48, 63, 159, 0.75) !important;
+  font-weight: 500;
 }
 a:hover {
-  /* background-color: rgba(255, 107, 74, 1) !important; */
-  color: rgba(255, 107, 74, 1) !important;
+  /* background-color: rgba(48, 63, 159, 1) !important; */
+  color: rgba(48, 63, 159, 1) !important;
 }
 p {
   color: rgba(0,0,0,.70) !important;
@@ -45,11 +46,11 @@ p {
 /* Cards */
 .card-id-label {
   color: rgb(255, 255, 255) !important;
-  background-color: rgba(248, 199, 91, 0.7) !important;
+  background-color: rgba(68, 137, 255, 0.7) !important;
 }
 .card-id-label:hover {
   color: rgb(255, 255, 255) !important;
-  background-color: rgba(248, 199, 91, 1) !important;
+  background-color: rgba(68, 137, 255, 1) !important;
 }
 /*  */
 .error-exclamation {

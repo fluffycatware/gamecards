@@ -37,13 +37,13 @@ export default {
 .item {
   border-radius: 0em !important;
   color: rgba(255, 255 ,255, 0.98)!important;
-  color: rgba(255, 107, 74, 1) !important;
+  color: rgba(48, 63, 159, 1) !important;
 }
 .item:hover {
   color: rgba(255, 255 ,255, 0.98) !important;
 }
 .item-1:hover {
-  background-color: rgba(255, 107, 74, 1) !important;
+  background-color: rgba(48, 63, 159, 1) !important;
 }
 .item-2:hover {
   background-color: #F8C75B !important;
